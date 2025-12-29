@@ -1,0 +1,41 @@
+# Ignore IDE and editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ignore temporary files
+*.tmp
+*.temp
+*.log
+*.bak
+*.swp
+*~
+
+# Ignore node_modules (if using any build tools)
+node_modules/
+
+# Ignore composer vendor directory (if using Composer)
+vendor/
+
+# Ignore uploaded files (if you add file upload functionality)
+uploads/
+temp/
+
+# Ignore database backup files
+*.sql.gz
+*.sql.zip
+backup/
+
+# Ignore config files with sensitive data (if you separate them)
+# config.local.php
+# .env
+
+# Ignore cache directories
+cache/
+tmp/
