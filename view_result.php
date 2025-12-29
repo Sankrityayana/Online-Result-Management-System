@@ -12,8 +12,8 @@ if (empty($exam_type) || empty($academic_year)) {
     exit;
 }
 
-$student = getStudentById($_SESSION['student_id']);
-$results = getStudentResults($_SESSION['student_id'], $exam_type, $academic_year);
+$student = getStudentById($conn, $_SESSION['student_id']);
+$results = getStudentResults($conn, $_SESSION['student_id'], $exam_type, $academic_year);
 
 // Get subjects for student's class
 $sql = "SELECT * FROM subjects WHERE class = ? ORDER BY subject_name";

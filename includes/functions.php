@@ -98,16 +98,22 @@ function isPassed($marks, $passingMarks) {
 function getOverallStatus($results, $subjects) {
     $subjectMap = [];
     foreach ($subjects as $subject) {
-        $subjectMap[$subject['id']] = $subject['passing_marks'];
+        $subjectMap[$subject['id']] = $subject;
     }
     
+    $failedSubjects = [];
     foreach ($results as $result) {
-        $passingMarks = $subjectMap[$result['subject_id']] ?? 33;
+        $subject = $subjectMap[$result['subject_id']] ?? null;
+        $passingMarks = $subject['passing_marks'] ?? 33;
         if (!isPassed($result['marks_obtained'], $passingMarks)) {
-            return 'FAIL';
+            $failedSubjects[] = $subject['subject_name'] ?? 'Unknown Subject';
         }
     }
-    return 'PASS';
+    
+    return [
+        'passed' => empty($failedSubjects),
+        'failed_subjects' => $failedSubjects
+    ];
 }
 
 /**

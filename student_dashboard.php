@@ -4,8 +4,8 @@ require_once '../includes/functions.php';
 
 requireStudentLogin();
 
-$student = getStudentById($_SESSION['student_id']);
-$examTypes = getStudentExamTypes($_SESSION['student_id']);
+$student = getStudentById($conn, $_SESSION['student_id']);
+$examTypes = getStudentExamTypes($conn, $_SESSION['student_id']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
